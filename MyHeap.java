@@ -27,10 +27,16 @@ public class MyHeap {
   }
 
   public static void heapsort(int[] data) {
-
+    heapify(data);
+    int size = data.length-1;
+    while(size > 0) {
+      swap(data, size, 0);
+      pushDown(data, size, 0);
+      size--;
+    }
   }
 
-  public static void swap(int[] data, int index, int idx){
+  private static void swap(int[] data, int index, int idx){
     int temp = data[idx];
     data[idx] = data[index];
     data[index] = temp;
