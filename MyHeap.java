@@ -1,12 +1,13 @@
 public class MyHeap {
 
   public static void pushDown(int[]data,int size,int index){
-    int idx = index * 2 + 2;
+    int idx = index * 2 + 1;
+    int idx2 = index;
     while(idx < size){
-      if(data[idx-1] > data[idx]) idx--;
-      if(data[index] < data[idx]) swap(data, index, idx);
-      index = idx;
-      idx = idx * 2 + 2;
+      if(idx+1 < size && data[idx+1] > data[idx]) idx++;
+      if(data[idx2] < data[idx]) swap(data, idx2, idx);
+      idx2 = idx;
+      idx = idx * 2 + 1;
     }
   }
 
