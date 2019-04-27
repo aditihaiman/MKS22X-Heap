@@ -11,8 +11,11 @@ public class MyHeap {
     }
   }
 
-  private static void pushUp(int[]data,int index) {
-
+  public static void pushUp(int[]data,int index) {
+    while(index >=0 && data[index] > data[(index-1)/2]){
+      swap(data, index, (index-1)/2);
+      index = (index-1)/2;
+    }
 
   }
 
